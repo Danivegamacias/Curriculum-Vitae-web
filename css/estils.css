@@ -119,10 +119,11 @@ main {
 
 section {
     margin-bottom: 3rem;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: var(--box-shadow);
+    background-color: transparent; /* Elimina el fondo blanco */
+    padding: 2rem 0; /* Ajusta el padding */
+    border-radius: 0; /* Elimina los bordes redondeados */
+    box-shadow: none; /* Elimina las sombras */
+    border-bottom: 1px solid #ddd; /* Añade una línea fina en la parte inferior */
 }
 
 /* Profile Section */
@@ -202,7 +203,12 @@ section {
 }
 
 .video-container {
-    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px 0;
 }
 
 .video-container iframe {
@@ -230,12 +236,6 @@ section {
     color: var(--primary-color);
 }
 
-.education-item {
-    display: flex;
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #eee;
-}
 
 .education-date {
     flex: 1;
@@ -281,11 +281,14 @@ section {
     color: var(--primary-color);
 }
 
-.experience-item {
-    display: flex;
+.education-item, .experience-item {
+    border-bottom: 1px solid #ddd; /* Línea fina */
     margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.education-item:last-child, .experience-item:last-child {
+    border-bottom: none; /* Elimina la línea del último elemento */
 }
 
 .experience-date {
