@@ -12,6 +12,7 @@
     --accent-color: #e74c3c;
     --text-color: #333;
     --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
     --hover-color: #169500;
     --box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
@@ -56,7 +57,7 @@ header {
     align-items: center;
     padding: 1rem 2rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto
 }
 
 .logo a {
@@ -123,8 +124,11 @@ main {
 
 section {
     margin-bottom: 3rem;
-    padding: 2rem 0;
-    border-bottom: 1px solid #ddd;
+    background-color: transparent; /* Elimina el fondo blanco */
+    padding: 2rem 0; /* Ajusta el padding */
+    border-radius: 0; /* Elimina los bordes redondeados */
+    box-shadow: none; /* Elimina las sombras */
+    border-bottom: 1px solid #ddd; /* Añade una línea fina en la parte inferior */
 }
 
 /* Profile Section */
@@ -237,27 +241,19 @@ section {
     color: var(--primary-color);
 }
 
-.education-item, .experience-item {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-}
 
-.education-item:last-child, .experience-item:last-child {
-    border-bottom: none;
-}
-
-.education-date, .experience-date {
+.education-date {
     flex: 1;
+    max-width: 100px;
     font-weight: bold;
     color: var(--primary-color);
 }
 
-.education-content, .experience-content {
+.education-content {
     flex: 4;
 }
 
-.institution, .company, .sector {
+.institution {
     font-style: italic;
     margin-bottom: 0.5rem;
 }
@@ -279,22 +275,94 @@ section {
 }
 
 /* Experience Section */
-.experience-row {
+.experience h1 {
     display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
-.experience-text {
-    flex: 2;
+.experience h1 i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
 }
 
-.experience-image {
+.education-item, .experience-item {
+    border-bottom: 1px solid #ddd; /* Línea fina */
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+.education-item:last-child, .experience-item:last-child {
+    border-bottom: none; /* Elimina la línea del último elemento */
+}
+
+.experience-date {
     flex: 1;
-    max-width: 100px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: var(--box-shadow);
+    max-width: 120px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.experience-content {
+    flex: 4;
+}
+
+.company, .sector {
+    margin-bottom: 0.5rem;
+}
+
+.company i, .sector i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.responsibilities {
+    margin-top: 1rem;
+}
+
+.responsibilities ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+}
+
+.responsibilities li {
+    margin-bottom: 0.3rem;
+}
+
+/* Skills Section */
+.skills {
+    margin-top: 3rem;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.skill-category {
+    flex: 1;
+    min-width: 200px;
+}
+
+.skill-category h3 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.skill-category h3 i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.skill-category ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+}
+
+.skill-category li {
+    margin-bottom: 0.5rem;
 }
 
 /* Footer */
@@ -359,7 +427,27 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Media query for small screens */
+.experience-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.experience-text {
+    flex: 2;
+}
+
+.experience-image {
+    flex: 1;
+    max-width: 1130px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    align-items: center;
+    justify-content: justify;
+}
+
+/* Media query corregida para pantallas pequeñas */
 @media screen and (max-width: 700px) {
     body {
         overflow-x: hidden;
@@ -367,7 +455,8 @@ footer {
     
     .navbar {
         display: flex;
-        justify-content: center;
+        
+    justify-content: center;
     }
 
     .logo {
@@ -382,6 +471,10 @@ footer {
         width: 100%;
         margin-bottom: 1rem;
     }
+    
+    .nav-links li {
+        margin: 0;
+    }
 
     .nav-links a {
         padding: 0.5rem;
@@ -391,29 +484,34 @@ footer {
     .language-selector {
         margin-top: 0.5rem;
     }
-
+    
+    /* Adapt profile layout */
     .profile {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-
+    
     .profile-image {
         margin-bottom: 1.5rem;
     }
-
+    
+    /* Adapt education and experience layout */
     .education-item, .experience-item {
         flex-direction: column;
     }
-
+    
     .education-date, .experience-date {
         margin-bottom: 0.5rem;
+        max-width: none;
     }
-
+    
+    /* Adapt video container */
     .video-container iframe {
         height: 250px;
     }
-
+    
+    /* Adapt map container */
     .map-container iframe {
         height: 300px;
     }
